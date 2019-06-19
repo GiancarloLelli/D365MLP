@@ -6,6 +6,7 @@ D365MLP.mlp_dummyentity.Form = new function () {
 
     _self.OnLoad = function () {
         var ai = window.appInsights;
+        ai.setAuthenticatedUserContext(Xrm.Page.context.getUserId());
         ai.trackEvent({ name: 'some event' });
         ai.trackPageView({ name: 'some page' });
         ai.trackPageViewPerformance({ name: 'some page', url: 'some url' });

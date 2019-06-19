@@ -1,13 +1,13 @@
 ﻿namespace Microsoft.ApplicationInsights.DataContracts
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.Extensibility.Implementation;
     using Microsoft.ApplicationInsights.Extensibility.Implementation.External;
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
 
     /// <summary>
     /// Telemetry type used to track exceptions. This will capture TypeName, Message, and CallStack.
@@ -93,7 +93,7 @@
             {
                 this.exception = source.Exception;
             }
-            
+
             this.extension = source.extension?.DeepClone();
         }
 
@@ -380,7 +380,7 @@
             // trim if we have too many, also add a custom exception to let the user know we're trimmed
             if (exceptions.Count > Constants.MaxExceptionCountToSave)
             {
-                // TODO: when we localize these messages, we should consider not using InvariantCulture
+                // When we localize these messages, we should consider not using InvariantCulture
                 // create our "message" exception.
                 InnerExceptionCountExceededException countExceededException =
                     new InnerExceptionCountExceededException(

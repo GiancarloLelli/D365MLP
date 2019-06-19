@@ -21,7 +21,7 @@
         [SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline", Justification = "Enforcing static fields initialization.")]
         static PreciseTimestamp()
         {
-            // Commented out for security reasons
+            // HACK: Commented out for security reasons
             //SyncTimeUpdater = InitializeSyncTimer();
         }
 #endif

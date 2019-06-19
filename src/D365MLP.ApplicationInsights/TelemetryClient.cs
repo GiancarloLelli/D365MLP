@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace D365MLP.ApplicationInsights
+﻿namespace D365MLP.ApplicationInsights
 {
     public class TelemetryClient
     {
+        private const string _uri = "https://dc.services.visualstudio.com/v2/track";
+        private readonly string _instrumentationKey;
+
+        public TelemetryClient(string instKey)
+        {
+            _instrumentationKey = instKey;
+        }
     }
 }

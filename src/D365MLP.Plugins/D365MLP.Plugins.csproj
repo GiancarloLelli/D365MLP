@@ -58,7 +58,8 @@
     <Compile Include="..\D365MLP.ApplicationInsights\TelemetryClient.cs">
       <Link>Core\TelemetryClient.cs</Link>
     </Compile>
-    <Compile Include="OnDummyEntityCreateDoesSomething.cs" />
+    <Compile Include="Core\JsonParser.cs" />
+    <Compile Include="OnDummyEntityCreateDoesSomethingAsync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,14 +5,12 @@ D365MLP.mlp_dummyentity.Form = new function () {
     var _self = this;
 
     _self.OnLoad = function (executionContext) {
-        debugger;
         var ai = window.appInsights;
         ai.setAuthenticatedUserContext(Xrm.Page.context.getUserId());
 
-        ai.startTrackEvent("eventDetailDiscovery");
         var formCtx = executionContext.getFormContext();
         var entityReference = formCtx.entityReference;
-        ai.stopTrackEvent("event", { logicalName: entityReference.entityType, id: entityReference.id });
+        ai.trackEvent("eventDetailDiscovery", { logicalName: entityReference.entityType, id: entityReference.id });
         ai.flush();
 
         /*

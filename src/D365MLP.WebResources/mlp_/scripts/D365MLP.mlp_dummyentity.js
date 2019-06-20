@@ -5,22 +5,24 @@ D365MLP.mlp_dummyentity.Form = new function () {
     var _self = this;
 
     _self.OnLoad = function (executionContext) {
+        debugger;
         var ai = window.appInsights;
         ai.setAuthenticatedUserContext(Xrm.Page.context.getUserId());
 
         var formCtx = executionContext.getFormContext();
+        var recordName = formCtx.getControl('mlp_name').getValue();
         var entityReference = formCtx.entityReference;
-        ai.trackEvent("eventDetailDiscovery", { logicalName: entityReference.entityType, id: entityReference.id });
+        ai.trackEvent('pageDetail', { itemName: recordName });
+        ai.trackPageViewPerformance({ name: recordName, url: window.location.href });
         ai.flush();
 
         /*
-        ai.trackEvent({ name: 'some event' });
-        ai.trackPageView({ name: 'page name' });
-        ai.trackPageViewPerformance({ name: 'some page', url: 'some url' });
+        ai.trackPageView({ name: 'page name' });        
         ai.trackException({ exception: new Error('some error') });
         ai.trackTrace({ message: 'some trace' });
         ai.trackMetric({ name: 'some metric', average: 42 });
         ai.trackDependencyData({ absoluteUrl: 'some url', responseCode: 200, method: 'GET', id: 'some id' });
+        
         ai.startTrackPage("pageName");
         ai.stopTrackPage("pageName", { customProp1: "some value" });
 
